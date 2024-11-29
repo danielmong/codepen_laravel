@@ -23,6 +23,6 @@ Route::get('/codepenlist/create', [CodepenListController::class, 'create'])->nam
 Route::get('/codepenlist/edit/{id}', [CodepenListController::class, 'edit'])->name('codepenlist.edit');
 Route::post('/codepenlist/save', [CodepenListController::class, 'save'])->name('codepenlist.save');
 Route::post('/codepenlist/update/{id}', [CodepenListController::class, 'update'])->name('codepenlist.update');
-Route::delete('/codepenlist', [CodepenListController::class, 'delete'])->name('codepenlist.delete');
+Route::delete('/codepenlist/{id}', [CodepenListController::class, 'delete'])->name('codepenlist.delete');
 
 require __DIR__.'/auth.php';
