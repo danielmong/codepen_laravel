@@ -49,13 +49,24 @@ class CodepenListController extends Controller
     {
         $codepen = CodepenList::find($id);
 
-        $codepen->user_id = auth()->id();
-        $codepen->title = $request->title;
-        $codepen->description = $request->description;
-        $codepen->content_html = $request->content_html;
-        $codepen->content_css = $request->content_css;
-        $codepen->content_js = $request->content_js;
-        $codepen->status = $request->status ?: 'public';
+        if($request->title) {
+            $codepen->title = $request->title;
+        }
+        if($request->description) {
+            $codepen->description = $request->description;
+        }
+        if($request->content_html) {
+            $codepen->content_html = $request->content_html;
+        }
+        if($request->content_css) {
+            $codepen->content_css = $request->content_css;
+        }
+        if($request->content_js) {
+            $codepen->content_js = $request->content_js;
+        }
+        if($request->status) {
+            $codepen->status = $request->status;
+        }
 
         $codepen->save();
 
