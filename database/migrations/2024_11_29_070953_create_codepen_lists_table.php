@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->integer('user_id');
-            $table->text('description');
-            $table->text('content_html');
-            $table->text('content_css');
-            $table->text('content_js');
+            $table->text('description')->nullable();
+            $table->text('content_html')->nullable();
+            $table->text('content_css')->nullable();
+            $table->text('content_js')->nullable();
             $table->enum('status', ['public', 'private'])->default('public');
             $table->timestamps();
         });

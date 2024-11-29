@@ -28,7 +28,7 @@
 
                 <div class="hidden absolute top-14 group-hover:block">
                     <div class="flex flex-col rounded bg-white shadow-md py-3 w-24">
-                        <a href="route('profile.edit')" class="hover:bg-gray-100 px-4 rounded py-1 text-sm">
+                        <a href="{{ route('profile.edit') }}" class="hover:bg-gray-100 px-4 rounded py-1 text-sm">
                             {{ __('Profile') }}
                         </a>
                         
