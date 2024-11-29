@@ -40,7 +40,7 @@ $("#save-btn").click(function () {
             new AWN().success('Your code has been saved successfully.');
         },
         error: function (xhr, status, error) {
-            new AWN().error('Server Error.');
+            new AWN().warning('Server Error.');
         }
     });
 });

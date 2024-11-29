@@ -41,13 +41,16 @@
                         <td class="border border-gray-300 px-4 py-2">{{ $codepen->created_at }}</td>
                         <td class="border border-gray-300 px-4 py-2">{{ $codepen->updated_at }}</td>
                         <td class="border border-gray-300 px-4 py-2">{{ $codepen->status }}</td>
+                         @if($codepen->user_id == auth()->id())
                         <td class="border border-gray-300 px-4 py-2 flex space-x-2">
-                            <!-- Edit Button -->
                             <a href="{{ route('codepenlist.edit', $codepen->id) }}" class="text-blue-500 hover:text-blue-700">Edit</a>
-
-                            <!-- Delete Button -->
                             <button type="button" class="text-red-500 hover:text-red-700 delete-btn" data-id="{{ $codepen->id }}">Delete</button>
                         </td>
+                        @else
+                        <td class="border border-gray-300 px-4 py-2 flex space-x-2">
+                            <a href="{{ route('codepenlist.edit', $codepen->id) }}" class="text-blue-500 hover:text-blue-700">Try it yourself</a>
+                        </td>
+                        @endif
                     </tr>
                     @endforeach
                 </tbody>

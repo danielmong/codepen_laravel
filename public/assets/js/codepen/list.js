@@ -26,7 +26,7 @@ $(".delete-btn").click(function () {
             
         },
         error: function (xhr, status, error) {
-            new AWN().error('Server Error.');
+            new AWN().warning('Server Error.');
         }
     })
 })

@@ -4,7 +4,7 @@
         <div class="flex justify-between h-16">
                 <!-- Logo -->
             <div class="shrink-0 flex items-center">
-                <a href="{{ route('dashboard') }}">
+                <a href="{{ route('codepenlist') }}">
                     <span class="font-black text-2xl cursor-pointer text-black">Codepen</span>
                 </a>
             </div>
