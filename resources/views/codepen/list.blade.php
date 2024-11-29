@@ -19,7 +19,7 @@
     <div class="container mx-auto py-8">
         <h1 class="text-2xl font-bold text-gray-700 mb-6">Codepen List</h1>
         <div class="bg-white shadow rounded-lg p-6">
-            <table class="min-w-full table-auto border-collapse border border-gray-300">
+            <table class="min-w-full table-auto border-collapse border text-center border-gray-300">
                 <thead>
                     <tr class="bg-gray-200 text-gray-700">
                         <th class="border border-gray-300 px-4 py-2">#</th>
@@ -43,12 +43,12 @@
                         <td class="border border-gray-300 px-4 py-2">{{ $codepen->updated_at }}</td>
                         <td class="border border-gray-300 px-4 py-2">{{ $codepen->status }}</td>
                          @if($codepen->user_id == auth()->id())
-                        <td class="border border-gray-300 px-4 py-2 flex space-x-2">
+                        <td class="border border-gray-300 px-4 py-2 flex space-x-2 items-center justify-center">
                             <a href="{{ route('codepenlist.edit', $codepen->id) }}" class="text-blue-500 hover:text-blue-700">Edit</a>
                             <button type="button" class="text-red-500 hover:text-red-700 delete-btn" data-id="{{ $codepen->id }}">Delete</button>
                         </td>
                         @else
-                        <td class="border border-gray-300 px-4 py-2 flex space-x-2">
+                        <td class="border border-gray-300 px-4 py-2 flex space-x-2 items-center justify-center">
                             <a href="{{ route('codepenlist.edit', $codepen->id) }}" class="text-blue-500 hover:text-blue-700">Try it yourself</a>
                         </td>
                         @endif
