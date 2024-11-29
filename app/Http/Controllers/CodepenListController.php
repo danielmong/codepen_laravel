@@ -38,6 +38,13 @@ class CodepenListController extends Controller
         return response()->json(['message' => 'success']);
     }
 
+    public function edit($id)
+    {
+        $codepen = CodepenList::find($id);
+
+        return view('/codepen/edit', compact('codepen'));
+    }
+
     public function update(Request $request, $id)
     {
         $codepen = CodepenList::find($id);
