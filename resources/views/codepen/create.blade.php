@@ -19,7 +19,13 @@
             <iframe id="result" class="w-full h-full border rounded bg-white"></iframe>
         </div>
     </div>
-    <div class="bg-white w-full h-8 flex justify-end py-1 px-4">
+    <div class="bg-white w-full h-8 flex justify-end py-1 px-4 items-center">
+        <input type="text" id="title" class="border outline-none rounded px-2 py-1 text-sm w-60" placeholder="Title of Code" />
+        <input type="text" id="desc" class="border outline-none rounded px-2 py-1 text-sm flex-1 ml-2" placeholder="Description of Code" />
+        <div class="flex items-center mx-2">
+            <input type="checkbox" id="is_public" checked/>
+            <label for="is_public" class="text-sm ml-1">is Public?</label>
+        </div>
         <button class="rounded px-3 border border-purple-500 bg-purple-500 text-white text-sm" id="save-btn">Save</button>
     </div>
 

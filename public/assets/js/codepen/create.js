@@ -3,8 +3,9 @@ $("#save-btn").click(function () {
     let css = cssEditor.getValue();
     let js = jsEditor.getValue();
 
-    let desc = "this is sample code for testing";
-    let title = "test title";
+    let desc = $("#desc").val();
+    let title = $("#title").val();
+    let is_public = $('#is_public').is(':checked');
 
     var csrfToken = $('meta[name="csrf-token"]').attr('content');
 
@@ -22,7 +23,8 @@ $("#save-btn").click(function () {
             content_css: css,
             content_js: js,
             title: title,
-            description: desc
+            description: desc,
+            status: is_public ? 'public' : 'private'
         },
         success: function (response) {
             console.log('Request successful:', response);
