@@ -19,5 +19,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/codepenlist', [CodepenListController::class, 'index'])->name('codepenlist');
+Route::get('/codepenlist/create', [CodepenListController::class, 'create'])->name('codepenlist.create');
+Route::post('/codepenlist/save', [CodepenListController::class, 'save'])->name('codepenlist.save');
 
 require __DIR__.'/auth.php';
