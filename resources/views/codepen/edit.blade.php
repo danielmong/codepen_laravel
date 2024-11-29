@@ -15,6 +15,7 @@
                     <h3 class="text-xl font-semibold">JavaScript</h3>
                     <div id="js-editor" class="h-64 border rounded">{{ $codepen->content_js }}</div>
                 </div>
+                <input type="hidden" id="codepen_id" value="{{ $codepen->id }}">
             </div>
             <div class="splitter w-2 h-full bg-slate-300"></div> 
         </div>
@@ -31,5 +32,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/mode-html.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/mode-css.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/mode-javascript.js"></script>
-    <script src="/assets/js/create.js"></script>
+    <script src="/assets/js/edit.js"></script>
 </x-app-layout>
