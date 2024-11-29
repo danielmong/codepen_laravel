@@ -13,6 +13,7 @@
 
         <!-- Scripts -->
         <script src="https://cdn.tailwindcss.com"></script> 
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
