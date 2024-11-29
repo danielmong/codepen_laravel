@@ -9,6 +9,16 @@ $("#save-btn").click(function () {
 
     var csrfToken = $('meta[name="csrf-token"]').attr('content');
 
+    if (!html && !css && !js) {
+        new AWN().info('No code has been written...');
+        return;
+    }
+
+    if (!title) {
+        new AWN().info('Please input the title of your code');
+        return;
+    }
+
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': csrfToken
@@ -27,10 +37,10 @@ $("#save-btn").click(function () {
             status: is_public ? 'public' : 'private'
         },
         success: function (response) {
-            console.log('Request successful:', response);
+            new AWN().success('Your code has been saved successfully.');
         },
         error: function (xhr, status, error) {
-            console.log('Request failed:', error);
+            new AWN().error('Server Error.');
         }
     });
 });

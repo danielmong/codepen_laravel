@@ -1,6 +1,4 @@
 $(".delete-btn").click(function () {
-    console.log("abc");
-    
     let id = $(this).data('id');
 
     var csrfToken = $('meta[name="csrf-token"]').attr('content');
@@ -15,10 +13,20 @@ $(".delete-btn").click(function () {
         url: `/codepenlist/${id}`,
         method: "DELETE",
         success: function (response) {
-            console.log('Request successful:', response);
+            let onOk = () => { window.location.reload(); };
+            new AWN().confirm(
+                'Are you sure?',
+                onOk,
+                {
+                    labels: {
+                        confirm: 'Are you agree to remove this code?'
+                    }
+                }
+            )
+            
         },
         error: function (xhr, status, error) {
-            console.log('Request failed:', error);
+            new AWN().error('Server Error.');
         }
     })
 })

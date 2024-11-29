@@ -56,9 +56,10 @@
 
         <!-- Pagination Links -->
         <div class="mt-4">
-            {{ $codepens->links() }}
+            {{ $codepens-> links() }}
         </div>
     </div>
     
     <script src="/assets/js/codepen/list.js"></script>
 </x-app-layout>
+n  
