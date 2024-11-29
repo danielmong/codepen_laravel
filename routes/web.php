@@ -21,5 +21,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/codepenlist', [CodepenListController::class, 'index'])->name('codepenlist');
 Route::get('/codepenlist/create', [CodepenListController::class, 'create'])->name('codepenlist.create');
 Route::post('/codepenlist/save', [CodepenListController::class, 'save'])->name('codepenlist.save');
+Route::post('/codepenlist/update/{id}', [CodepenListController::class, 'update'])->name('codepenlist.update');
+Route::delete('/codepenlist', [CodepenListController::class, 'delete'])->name('codepenlist.delete');
 
 require __DIR__.'/auth.php';
