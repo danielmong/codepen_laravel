@@ -28,20 +28,18 @@
                         <th class="border border-gray-300 px-4 py-2">Author</th>
                         <th class="border border-gray-300 px-4 py-2">created_at</th>
                         <th class="border border-gray-300 px-4 py-2">updated_at</th>
-                        <th class="border border-gray-300 px-4 py-2">Visibility</th>
                         <th class="border border-gray-300 px-4 py-2">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($codepens as $codepen)
-                    <tr class="text-gray-600 code-item cursor-pointer" data-id="{{ $codepen->id }}">
+                    <tr class="text-gray-600 code-item cursor-pointer hover:bg-slate-100" data-id="{{ $codepen->id }}">
                         <td class="border border-gray-300 px-4 py-2">{{ $loop->iteration + ($codepens->currentPage() - 1) * $codepens->perPage() }}</td>
                         <td class="border border-gray-300 px-4 py-2">{{ $codepen->title }}</td>
                         <td class="border border-gray-300 px-4 py-2">{{ $codepen->description }}</td>
                         <td class="border border-gray-300 px-4 py-2">{{ $codepen->user->name }}</td>
                         <td class="border border-gray-300 px-4 py-2">{{ $codepen->created_at }}</td>
                         <td class="border border-gray-300 px-4 py-2">{{ $codepen->updated_at }}</td>
-                        <td class="border border-gray-300 px-4 py-2">{{ $codepen->status }}</td>
                          @if($codepen->user_id == auth()->id())
                         <td class="border border-gray-300 px-4 py-2 flex space-x-2 items-center justify-center">
                             <a href="{{ route('codepenlist.edit', $codepen->id) }}" class="action text-blue-500 hover:text-blue-700">Edit</a>
