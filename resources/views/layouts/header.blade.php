@@ -5,7 +5,7 @@
                 <!-- Logo -->
             <div class="shrink-0 flex items-center">
                 <a href="{{ route('codepenlist') }}">
-                    <span class="font-black text-2xl cursor-pointer text-black">Codepen</span>
+                    <span class="font-black text-2xl cursor-pointer text-black">EditNow</span>
                 </a>
             </div>
 

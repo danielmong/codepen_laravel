@@ -11,7 +11,7 @@ class CodepenListController extends Controller
 {
     public function index()
     {
-        $codepens = CodepenList::paginate(10);
+        $codepens = CodepenList::where('status', 'public')->paginate(10);
 
         return view('/codepen/list', compact('codepens'));
     }

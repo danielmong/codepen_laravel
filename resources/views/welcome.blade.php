@@ -9,7 +9,7 @@
         <div class="h-screen w-full overflow-auto relative bg-cover" style="background-image: url(/assets/images/bg.jpg)">
             <div class="w-full flex items-center justify-between px-12 py-10">
                 <a href="/" class="">
-                    <span class="font-black text-3xl cursor-pointer text-white">Codepen</span>
+                    <span class="font-black text-3xl cursor-pointer text-white">EditNow</span>
                 </a>
                 <div class="">
                     @auth()
