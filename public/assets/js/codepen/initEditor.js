@@ -57,6 +57,8 @@ jsEditor.on("change", function (delta) {
 
 let editorHeight = (window.innerHeight - 98 - 96) / 3;
 $(".editor").css("height", editorHeight);
+
+
 // Custom resize handle
 // For resizing rows within the left container
 var isResizingRows = false;
@@ -65,6 +67,14 @@ var prevHeight = 0;
 var nextHeight = 0;
 var prevRow = null;
 var nextRow = null;
+
+// For resizing the width of the left and right containers
+var isResizingWidth = false;
+var lastX = 0;
+var leftContainerWidth = 0;
+var rightContainerWidth = 0;
+var prevCol = null;
+var nextCol = null;
 
 $(".handler").on("mousedown", function (e) {
     isResizingRows = true;
@@ -75,6 +85,16 @@ $(".handler").on("mousedown", function (e) {
 
     prevHeight = prevRow.height();
     nextHeight = nextRow.height();
+
+    e.preventDefault();
+});
+
+$(".resizable-handler").on("mousedown", function (e) {
+    isResizingWidth = true;
+    lastX = e.pageX;
+
+    leftContainerWidth = $("#container-left").width();
+    rightContainerWidth = $("#container-right").width();
 
     e.preventDefault();
 });
@@ -90,31 +110,10 @@ $(document).on("mousemove", function (e) {
             nextRow.height(newNextHeight);
         }
     }
-});
 
-$(document).on("mouseup", function () {
-    isResizingRows = false;
-});
-
-// For resizing the width of the left and right containers
-var isResizingWidth = false;
-var lastX = 0;
-var leftContainerWidth = 0;
-var rightContainerWidth = 0;
-
-$(".resizable-handler").on("mousedown", function (e) {
-    isResizingWidth = true;
-    lastX = e.pageX;
-
-    leftContainerWidth = $("#container-left").width();
-    rightContainerWidth = $("#container-right").width();
-
-    e.preventDefault();
-});
-
-$(document).on("mousemove", function (e) {
     if (isResizingWidth) {
         var diff = e.pageX - lastX;
+        
         var newLeftWidth = leftContainerWidth + diff;
         var newRightWidth = rightContainerWidth - diff;
 
@@ -126,8 +125,13 @@ $(document).on("mousemove", function (e) {
             $(".resizable-handler").css("left", newLeftWidth + "px");
         }
     }
+
+    console.log(isResizingRows, isResizingWidth);
+    
 });
 
 $(document).on("mouseup", function () {
+    isResizingRows = false;
     isResizingWidth = false;
 });
+
