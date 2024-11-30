@@ -9,8 +9,8 @@
                     </button>
                 </div>
                 <div class="mx-4 h-6 border-r"></div> -->
-                <a class="rounded-full bg-purple-500 text-white px-4 py-2 flex items-center hover:bg-purple-600 cursor-pointer shadow-md" href="{{ route('codepenlist.create') }}">
-                    <img src="https://img.icons8.com/?size=16&id=9fYfwBJNoMpV&format=png&color=ffffff" />
+                <a class="rounded-full border border-purple-500 text-purple-500 hover:text-white px-4 py-2 flex items-center hover:bg-purple-600 cursor-pointer shadow-md" href="{{ route('codepenlist.create') }}">
+                    <i class="fa fa-edit"></i>
                     <span class="text-sm ml-2">New Code</span>
                 </a>
             </div>
@@ -66,4 +66,3 @@
     
     <script src="/assets/js/codepen/list.js"></script>
 </x-app-layout>
-n  

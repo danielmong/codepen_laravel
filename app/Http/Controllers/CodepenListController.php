@@ -35,7 +35,7 @@ class CodepenListController extends Controller
 
         $codepen->save();
 
-        return response()->json(['message' => 'success']);
+        return response()->json(['message' => 'success', 'id' => $codepen->id]);
     }
 
     public function edit($id)
