@@ -38,6 +38,8 @@ $("#save-btn").click(function () {
         },
         success: function (response) {
             new AWN().success('Your code has been saved successfully.');
+
+            location.href = '/codepenlist/edit/' + response.id;
         },
         error: function (xhr, status, error) {
             new AWN().warning('Server Error.');
