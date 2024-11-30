@@ -46,10 +46,12 @@
                         <td class="border border-gray-300 px-4 py-2 flex space-x-2 items-center justify-center">
                             <a href="{{ route('codepenlist.edit', $codepen->id) }}" class="action text-blue-500 hover:text-blue-700">Edit</a>
                             <button type="button" class="text-red-500 hover:text-red-700 action delete-btn" data-id="{{ $codepen->id }}">Delete</button>
+                            <button type="button" class="action text-green-500 hover:text-green-600 preview-btn" data-id="{{ $codepen->id }}">Preview</button>
                         </td>
                         @else
                         <td class="border border-gray-300 px-4 py-2 flex space-x-2 items-center justify-center">
-                            <a href="{{ route('codepenlist.edit', $codepen->id) }}" class="text-blue-500 action hover:text-blue-700">Try it yourself</a>
+                            <a href="{{ route('codepenlist.edit', $codepen->id) }}" class="text-blue-500 action hover:text-blue-700 copy">Make a Copy</a>
+                            <button class="action text-green-500 hover:text-green-600 preview-btn" data-id="{{ $codepen->id }}">Preview</button>
                         </td>
                         @endif
                     </tr>

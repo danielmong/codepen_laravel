@@ -35,44 +35,42 @@ $(".delete-btn").click(function () {
 })
 
 
-$(".code-item").click(function (e) {
-    if (!$(e.target).hasClass('action')) {
+$(".preview-btn").click(function (e) {
 
-        id = $(this).data("id");
+    id = $(this).data("id");
 
-        var csrfToken = $('meta[name="csrf-token"]').attr('content');
+    var csrfToken = $('meta[name="csrf-token"]').attr('content');
 
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': csrfToken
-            }
-        });
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': csrfToken
+        }
+    });
 
-        $.ajax({
-            url: `/codepenlist/preview/${id}`,
-            type: 'GET',
-            success: function (response) {
-                let preview = document.querySelector('#preview');
-                let clone = preview.cloneNode();
-                preview.replaceWith(clone);
-                preview = clone;
-                
-                preview.contentWindow.document.open();
-                preview.contentWindow.document.writeln(
-                    `${response.content_html}
-                    <style>${response.content_css}</style>
-                    <script type="module">${response.content_js}<\/script>`
-                );
-                preview.contentWindow.document.close();
-            },
-            error: function (xhr, status, error) {
-                new AWN().warning('Server Error.');
-            }
-        });
+    $.ajax({
+        url: `/codepenlist/preview/${id}`,
+        type: 'GET',
+        success: function (response) {
+            let preview = document.querySelector('#preview');
+            let clone = preview.cloneNode();
+            preview.replaceWith(clone);
+            preview = clone;
+            
+            preview.contentWindow.document.open();
+            preview.contentWindow.document.writeln(
+                `${response.content_html}
+                <style>${response.content_css}</style>
+                <script type="module">${response.content_js}<\/script>`
+            );
+            preview.contentWindow.document.close();
+        },
+        error: function (xhr, status, error) {
+            new AWN().warning('Server Error.');
+        }
+    });
 
-        
-        $(".modal").css("display", "block");
-    }
+    
+    $(".modal").css("display", "block");
 })
 
 $(".close").click(function () {
