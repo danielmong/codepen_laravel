@@ -34,7 +34,7 @@
                 </thead>
                 <tbody>
                     @foreach($codepens as $codepen)
-                    <tr class="text-gray-600">
+                    <tr class="text-gray-600 code-item cursor-pointer" data-id="{{ $codepen->id }}">
                         <td class="border border-gray-300 px-4 py-2">{{ $loop->iteration + ($codepens->currentPage() - 1) * $codepens->perPage() }}</td>
                         <td class="border border-gray-300 px-4 py-2">{{ $codepen->title }}</td>
                         <td class="border border-gray-300 px-4 py-2">{{ $codepen->description }}</td>
@@ -44,12 +44,12 @@
                         <td class="border border-gray-300 px-4 py-2">{{ $codepen->status }}</td>
                          @if($codepen->user_id == auth()->id())
                         <td class="border border-gray-300 px-4 py-2 flex space-x-2 items-center justify-center">
-                            <a href="{{ route('codepenlist.edit', $codepen->id) }}" class="text-blue-500 hover:text-blue-700">Edit</a>
-                            <button type="button" class="text-red-500 hover:text-red-700 delete-btn" data-id="{{ $codepen->id }}">Delete</button>
+                            <a href="{{ route('codepenlist.edit', $codepen->id) }}" class="action text-blue-500 hover:text-blue-700">Edit</a>
+                            <button type="button" class="text-red-500 hover:text-red-700 action delete-btn" data-id="{{ $codepen->id }}">Delete</button>
                         </td>
                         @else
                         <td class="border border-gray-300 px-4 py-2 flex space-x-2 items-center justify-center">
-                            <a href="{{ route('codepenlist.edit', $codepen->id) }}" class="text-blue-500 hover:text-blue-700">Try it yourself</a>
+                            <a href="{{ route('codepenlist.edit', $codepen->id) }}" class="text-blue-500 action hover:text-blue-700">Try it yourself</a>
                         </td>
                         @endif
                     </tr>
@@ -63,6 +63,23 @@
             {{ $codepens-> links() }}
         </div>
     </div>
-    
+
+    <div class="modal hidden w-full h-screen fixed top-0 bg-black/80 transition-all duration-300 py-[5%]">
+        
+        <div class="w-[80%] h-full bg-white mx-auto align-middle rounded relative">
+            <div class="absolute right-2 top-2 flex">
+                <button class="rounded-full border mr-2 border-purple-500 text-purple-500 hover:text-white px-4 py-2 flex items-center hover:bg-purple-600 cursor-pointer shadow-md" href="{{ route('codepenlist.create') }}">
+                    <i class="fa fa-copy"></i>
+                    <span class="text-sm ml-2">Make a Copy</span>
+                </button>
+                <button class="rounded-full border border-purple-500 text-purple-500 hover:text-white px-4 py-2 flex items-center hover:bg-purple-600 cursor-pointer shadow-md" href="{{ route('codepenlist.create') }}">
+                    <i class="fa fa-close"></i>
+                    <span class="text-sm ml-2">Close</span>
+                </button>
+            </div>
+            <iframe class="w-full h-full" id="preview"></iframe>
+        </div>
+    </div>
+
     <script src="/assets/js/codepen/list.js"></script>
 </x-app-layout>
