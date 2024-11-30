@@ -1,6 +1,8 @@
 inputHandler();
 
-$("#save-btn").click(function () {
+$(".save-btn").click(function () {
+    let actionType = $(this).data("type");
+
     let html = htmlEditor.getValue();
     let css = cssEditor.getValue();
     let js = jsEditor.getValue();
@@ -29,8 +31,10 @@ $("#save-btn").click(function () {
         }
     });
 
+    let requestUrl = actionType == "save" ? `/codepenlist/update/${id}` : '/codepenlist/save';
+
     $.ajax({
-        url: `/codepenlist/update/${id}`,  // Your endpoint URL
+        url: requestUrl,  // Your endpoint URL
         type: 'POST',           // Method (GET, POST, etc.)
         data: {
             content_html: html,
@@ -42,6 +46,9 @@ $("#save-btn").click(function () {
         },
         success: function (response) {
             new AWN().success('Your code has been updated successfully.');
+            if (actionType !== "save") {
+                location.href = '/codepenlist/edit/' + response.id;
+            }
         },
         error: function (xhr, status, error) {
             new AWN().warning('Server Error.');

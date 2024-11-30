@@ -1,5 +1,7 @@
+let id = "";
+
 $(".delete-btn").click(function () {
-    let id = $(this).data('id');
+    id = $(this).data('id');
 
     var csrfToken = $('meta[name="csrf-token"]').attr('content');
 
@@ -32,10 +34,11 @@ $(".delete-btn").click(function () {
     )
 })
 
+
 $(".code-item").click(function (e) {
     if (!$(e.target).hasClass('action')) {
 
-        let id = $(this).data("id");
+        id = $(this).data("id");
 
         var csrfToken = $('meta[name="csrf-token"]').attr('content');
 
@@ -47,7 +50,7 @@ $(".code-item").click(function (e) {
 
         $.ajax({
             url: `/codepenlist/preview/${id}`,
-            type: 'POST',
+            type: 'GET',
             success: function (response) {
                 let preview = document.querySelector('#preview');
                 let clone = preview.cloneNode();
@@ -68,6 +71,14 @@ $(".code-item").click(function (e) {
         });
 
         
-        $(".modal").fadeIn();
+        $(".modal").css("display", "block");
     }
+})
+
+$(".close").click(function () {
+    $(".modal").css("display", "none");
+})
+
+$(".copy").click(function () {
+    location.href = `/codepenlist/edit/${id}`;
 })

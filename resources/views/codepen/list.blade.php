@@ -68,11 +68,11 @@
         
         <div class="w-[80%] h-full bg-white mx-auto align-middle rounded relative">
             <div class="absolute right-2 top-2 flex">
-                <button class="rounded-full border mr-2 border-purple-500 text-purple-500 hover:text-white px-4 py-2 flex items-center hover:bg-purple-600 cursor-pointer shadow-md" href="{{ route('codepenlist.create') }}">
+                <button class="rounded-full border mr-2 border-purple-500 text-purple-500 hover:text-white px-4 py-2 flex items-center hover:bg-purple-600 cursor-pointer shadow-md copy" href="{{ route('codepenlist.create') }}">
                     <i class="fa fa-copy"></i>
                     <span class="text-sm ml-2">Make a Copy</span>
                 </button>
-                <button class="rounded-full border border-purple-500 text-purple-500 hover:text-white px-4 py-2 flex items-center hover:bg-purple-600 cursor-pointer shadow-md" href="{{ route('codepenlist.create') }}">
+                <button class="rounded-full border border-purple-500 text-purple-500 hover:text-white px-4 py-2 flex items-center hover:bg-purple-600 cursor-pointer shadow-md close" href="{{ route('codepenlist.create') }}">
                     <i class="fa fa-close"></i>
                     <span class="text-sm ml-2">Close</span>
                 </button>

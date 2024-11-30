@@ -25,14 +25,16 @@
         </div>
     </div>
     <div class="bg-white w-full h-8 flex justify-end py-1 px-4 items-center">
-        <input type="text" id="title" class="border outline-none rounded px-2 py-1 text-sm w-60" placeholder="Title of Code" value="{{ $codepen->title }}" {{ $codepen->user_id != auth()->id() ? 'readonly' : '' }} />
-        <input type="text" id="desc" class="border outline-none rounded px-2 py-1 text-sm flex-1 ml-2" placeholder="Description of Code" value="{{ $codepen->description }}" {{ $codepen->user_id != auth()->id() ? 'readonly' : '' }} />
+        <input type="text" id="title" class="border outline-none rounded px-2 py-1 text-sm w-60" placeholder="Title of Code" value="{{ $codepen->title }}{{ $codepen->user_id != auth()->id() ? '-Copy' : '' }}"  />
+        <input type="text" id="desc" class="border outline-none rounded px-2 py-1 text-sm flex-1 ml-2" placeholder="Description of Code" value="{{ $codepen->description }}" />
         <div class="flex items-center mx-2">
-            <input type="checkbox" id="is_public"  {{ $codepen->status == "public" ? 'checked' : '' }} {{ $codepen->user_id != auth()->id() ? 'disabled' : '' }}/>
+            <input type="checkbox" id="is_public"  {{ $codepen->status == "public" ? 'checked' : '' }}/>
             <label for="is_public" class="text-sm ml-1">is Public?</label>
         </div>
         @if($codepen->user_id == auth()->id())
-        <button class="rounded px-3 border border-purple-500 bg-purple-500 text-white text-sm" id="save-btn">Save</button>
+        <button class="rounded px-3 border border-purple-500 bg-purple-500 text-white text-sm save-btn" data-type="save">Save</button>
+        @else
+        <button class="rounded px-3 border border-purple-500 bg-purple-500 text-white text-sm save-btn" data-type="save-as">Save As</button>
         @endif
     </div>
 
