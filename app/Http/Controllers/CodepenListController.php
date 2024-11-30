@@ -81,4 +81,11 @@ class CodepenListController extends Controller
 
         return response()->json(['message' => 'success']);
     }
+
+    public function preview($id)
+    {
+        $codepen = CodepenList::find($id);
+
+        return response()->json(['message' => 'success', 'content_html' => $codepen->content_html, 'content_css' => $codepen->content_css, 'content_js' => $codepen->content_js]);
+    }
 }
