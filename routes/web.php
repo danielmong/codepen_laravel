@@ -16,13 +16,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    
+    Route::get('/codepenlist', [CodepenListController::class, 'index'])->name('codepenlist');
+    Route::get('/codepenlist/create', [CodepenListController::class, 'create'])->name('codepenlist.create');
+    Route::get('/codepenlist/edit/{id}', [CodepenListController::class, 'edit'])->name('codepenlist.edit');
+    Route::get('/codepenlist/preview/{id}', [CodepenListController::class, 'preview'])->name('codepenlist.preview');
+    Route::post('/codepenlist/save', [CodepenListController::class, 'save'])->name('codepenlist.save');
+    Route::post('/codepenlist/update/{id}', [CodepenListController::class, 'update'])->name('codepenlist.update');
+    Route::delete('/codepenlist/{id}', [CodepenListController::class, 'delete'])->name('codepenlist.delete');
 });
-
-Route::get('/codepenlist', [CodepenListController::class, 'index'])->name('codepenlist');
-Route::get('/codepenlist/create', [CodepenListController::class, 'create'])->name('codepenlist.create');
-Route::get('/codepenlist/edit/{id}', [CodepenListController::class, 'edit'])->name('codepenlist.edit');
-Route::post('/codepenlist/save', [CodepenListController::class, 'save'])->name('codepenlist.save');
-Route::post('/codepenlist/update/{id}', [CodepenListController::class, 'update'])->name('codepenlist.update');
-Route::delete('/codepenlist/{id}', [CodepenListController::class, 'delete'])->name('codepenlist.delete');
 
 require __DIR__.'/auth.php';

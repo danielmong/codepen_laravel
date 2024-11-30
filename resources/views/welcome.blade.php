@@ -12,6 +12,13 @@
                     <span class="font-black text-3xl cursor-pointer text-white">Codepen</span>
                 </a>
                 <div class="">
+                    @auth()
+                    <a href="{{ route('codepenlist') }}" class="mx-1">
+                        <button class="font-semibold text-white rounded-xl border-2 px-4 py-1 hover:bg-blue-700 transition duration-200">
+                            Go To Codepen List
+                        </button>
+                    </a>
+                    @else
                     <a href="{{ route('login') }}" class="mx-1">
                         <button class="font-semibold text-white rounded-xl border-2 px-4 py-1 hover:bg-blue-700 transition duration-200">
                             Login
@@ -22,6 +29,7 @@
                             Register
                         </button>
                     </a>
+                    @endif
                 </div>
             </div>
             <div class="my-32 mx-16">
