@@ -14,6 +14,12 @@
         
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" rel="stylesheet" />
 
+        <style>
+            .ace_print-margin {
+                display: none;
+            }
+        </style>
+
         
         <!-- Scripts -->
         <script src="https://cdn.tailwindcss.com"></script> 

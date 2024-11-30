@@ -15,8 +15,10 @@
             </div>
             <div id="js-editor" class="editor border rounded"></div>
         </div>
-        <div id="container-right" class="h-full flex-1">
+        <div class="resizable-handler w-2 h-full cursor-ew-resize"></div>
+        <div id="container-right" class="h-full flex-1 relative">
             <iframe id="result" class="w-full h-full border rounded bg-white"></iframe>
+            <div class="w-full h-full opacity-0 bg-indigo-500 absolute z-10 top-0"></div>
         </div>
     </div>
     <div class="bg-white w-full h-8 flex justify-end py-1 px-4 items-center">
