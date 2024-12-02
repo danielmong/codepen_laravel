@@ -22,18 +22,37 @@ let debounce;
 function updateIframe() {
 
     // Create new iframe
+    // let clone = result.cloneNode();
+    // result.replaceWith(clone);
+    // result = clone;
+
+    // // Render
+    // result.contentWindow.document.open();
+    // result.contentWindow.document.writeln(
+    //     `${htmlEditor.getValue()}
+    //             <style>${cssEditor.getValue()}</style>
+    //             <script type="module">${jsEditor.getValue()}<\/script>`
+    // );
+    // result.contentWindow.document.close();
+
     let clone = result.cloneNode();
     result.replaceWith(clone);
     result = clone;
 
-    // Render
-    result.contentWindow.document.open();
-    result.contentWindow.document.writeln(
-        `${htmlEditor.getValue()}
-                <style>${cssEditor.getValue()}</style>
-                <script type="module">${jsEditor.getValue()}<\/script>`
-    );
-    result.contentWindow.document.close();
+    // Clear the iframe's document
+    const iframeDocument = result.contentWindow.document;
+    iframeDocument.open();
+    iframeDocument.close();
+
+    // Create a container for HTML content
+    const htmlContent = `
+    ${htmlEditor.getValue() }
+    <style>${cssEditor.getValue()}</style>
+    <script type="module">${jsEditor.getValue()}<\/script>
+`;
+
+    // Write to the iframe's document safely
+    iframeDocument.documentElement.innerHTML = htmlContent;
 
 }
 

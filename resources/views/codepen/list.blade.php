@@ -26,8 +26,9 @@
                         <th class="border border-gray-300 px-4 py-2">Title</th>
                         <th class="border border-gray-300 px-4 py-2">Description</th>
                         <th class="border border-gray-300 px-4 py-2">Author</th>
-                        <th class="border border-gray-300 px-4 py-2">created_at</th>
-                        <th class="border border-gray-300 px-4 py-2">updated_at</th>
+                        <th class="border border-gray-300 px-4 py-2">Created At</th>
+                        <th class="border border-gray-300 px-4 py-2">Updated At</th>
+                        <th class="border border-gray-300 px-4 py-2">Status</th>
                         <th class="border border-gray-300 px-4 py-2">Actions</th>
                     </tr>
                 </thead>
@@ -40,6 +41,7 @@
                         <td class="border border-gray-300 px-4 py-2">{{ $codepen->user->name }}</td>
                         <td class="border border-gray-300 px-4 py-2">{{ $codepen->created_at }}</td>
                         <td class="border border-gray-300 px-4 py-2">{{ $codepen->updated_at }}</td>
+                        <td class="border border-gray-300 px-4 py-2">{{ $codepen->status }}</td>
                          @if($codepen->user_id == auth()->id())
                         <td class="border border-gray-300 px-4 py-2 flex space-x-2 items-center justify-center">
                             <a href="{{ route('codepenlist.edit', $codepen->id) }}" class="action text-blue-500 hover:text-blue-700">Edit</a>

@@ -88,4 +88,11 @@ class CodepenListController extends Controller
 
         return response()->json(['message' => 'success', 'content_html' => $codepen->content_html, 'content_css' => $codepen->content_css, 'content_js' => $codepen->content_js]);
     }
+
+    public function welcome()
+    {
+        $randomRows = CodepenList::inRandomOrder()->take(20)->get();
+
+        return view('welcome', compact("randomRows"));
+    }
 }
