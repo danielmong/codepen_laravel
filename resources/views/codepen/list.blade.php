@@ -26,6 +26,7 @@
                         <th class="border border-gray-300 px-4 py-2">Title</th>
                         <th class="border border-gray-300 px-4 py-2">Description</th>
                         <th class="border border-gray-300 px-4 py-2">Author</th>
+                        <th class="border border-gray-300 px-4 py-2">Status</th>
                         <th class="border border-gray-300 px-4 py-2">created_at</th>
                         <th class="border border-gray-300 px-4 py-2">updated_at</th>
                         <th class="border border-gray-300 px-4 py-2">Actions</th>
@@ -38,6 +39,7 @@
                         <td class="border border-gray-300 px-4 py-2">{{ $codepen->title }}</td>
                         <td class="border border-gray-300 px-4 py-2">{{ $codepen->description }}</td>
                         <td class="border border-gray-300 px-4 py-2">{{ $codepen->user->name }}</td>
+                        <td class="border border-gray-300 px-4 py-2">{{ $codepen->status }}</td>
                         <td class="border border-gray-300 px-4 py-2">{{ $codepen->created_at }}</td>
                         <td class="border border-gray-300 px-4 py-2">{{ $codepen->updated_at }}</td>
                          @if($codepen->user_id == auth()->id())
