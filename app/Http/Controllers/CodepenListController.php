@@ -91,8 +91,13 @@ class CodepenListController extends Controller
 
     public function welcome()
     {
-        $randomRows = CodepenList::inRandomOrder()->take(20)->get();
 
-        return view('welcome', compact("randomRows"));
+        if (auth()->check()) {
+            return redirect()->route('codepenlist');
+        } else {
+            $randomRows = CodepenList::inRandomOrder()->take(20)->get();
+            return view('welcome', compact("randomRows"));
+        }
+
     }
 }
