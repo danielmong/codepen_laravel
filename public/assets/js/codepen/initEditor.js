@@ -115,6 +115,8 @@ $(".resizable-handler").on("mousedown", function (e) {
     leftContainerWidth = $("#container-left").width();
     rightContainerWidth = $("#container-right").width();
 
+    $('.overlay').css('display', 'block');
+
     e.preventDefault();
 });
 
@@ -152,5 +154,7 @@ $(document).on("mousemove", function (e) {
 $(document).on("mouseup", function () {
     isResizingRows = false;
     isResizingWidth = false;
+
+    $('.overlay').css('display', 'none');
 });
 
