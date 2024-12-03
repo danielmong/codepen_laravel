@@ -14,6 +14,9 @@
                 <span class="font-semibold text-md text-black">JS</span>
             </div>
             <div id="js-editor" class="editor border rounded"></div>
+            <div class="px-2 h-8 flex items-center justify-between cursor-row-resize handler border-b">
+            </div>
+            <div id="placehold" class="flex-1"></div>
         </div>
         <div class="resizable-handler w-2 h-full cursor-ew-resize"></div>
         <div id="container-right" class="h-full flex-1 relative">
@@ -29,13 +32,13 @@
         <input type="text" id="title" class="border outline-none rounded px-2 py-1 text-sm w-60" placeholder="Title of Code" />
         <input type="text" id="desc" class="border outline-none rounded px-2 py-1 text-sm flex-1 ml-2" placeholder="Description of Code" />
         <div class="flex items-center mx-2">
-            <input type="checkbox" id="is_public" checked/>
+            <input type="checkbox" id="is_public" checked />
             <label for="is_public" class="text-sm ml-1">is Public?</label>
         </div>
         <button class="rounded px-3 border border-purple-500 bg-purple-500 text-white text-sm" id="save-btn">Save</button>
     </div>
 
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/mode-html.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/mode-css.js"></script>

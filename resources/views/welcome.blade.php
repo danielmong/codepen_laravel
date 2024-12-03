@@ -44,7 +44,7 @@
             <div class="font-black text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white text-center my-4">Practice Your Code Easily</div>
         </div>
         <div class="absolute rounded-2xl left-1/2 bottom-20 transform -translate-x-1/2 px-6 py-2 text-white font-semibold text-lg cursor-pointer">
-            <div class="animate-bounce">
+            <div class="animate-bounce" id="go_to_down">
                 <span class="mr-1">
                     <i class="fa fa-arrow-down"></i>
                 </span>
@@ -52,7 +52,7 @@
             </div>
         </div>
     </div>
-    <div class="flex w-full bg-slate-100 py-12">
+    <div class="flex w-full bg-slate-100 py-12" id="list">
         <div class="container mx-auto">
             @foreach($randomRows as $codepen)
             <div class="my-2 hover:shadow-md rounded px-12 py-6 bg-white cursor-pointer preview-btn" data-id="{{ $codepen->id }}">
@@ -91,6 +91,13 @@
     </div>
 
     <script src="/assets/js/codepen/list.js"></script>
+    <script>
+        $("#go_to_down").click(function() {
+            $('html, body').animate({
+                scrollTop: $('#list').offset().top
+            }, 1000); // Duration in milliseconds
+        })
+    </script>
 </body>
 
 </html>

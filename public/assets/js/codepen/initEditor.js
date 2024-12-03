@@ -74,9 +74,26 @@ jsEditor.on("change", function (delta) {
     inputHandler();
 });
 
-let editorHeight = (window.innerHeight - 98 - 96) / 3;
-$(".editor").css("height", editorHeight);
+function initEditorSize() {
+    let init_opts = window.localStorage.getItem("init_opts");
 
+    if (init_opts) {
+        init_opts = JSON.parse(init_opts);
+
+        console.log(init_opts);
+        
+
+        $("#html-editor").height(window.innerHeight * init_opts.html_rate);
+        $("#css-editor").height(window.innerHeight * init_opts.css_rate);
+        $("#js-editor").height(window.innerHeight - 98 - 96 - window.innerHeight * init_opts.html_rate - window.innerHeight * init_opts.css_rate);
+
+        $("#container-left").width(window.innerWidth * init_opts.left_rate);
+
+    } else {
+        let editorHeight = (window.innerHeight - 98 - 96) / 3;
+        $(".editor").css("height", editorHeight);
+    }
+}
 
 // Custom resize handle
 // For resizing rows within the left container
@@ -146,15 +163,39 @@ $(document).on("mousemove", function (e) {
             $(".resizable-handler").css("left", newLeftWidth + "px");
         }
     }
-
-    console.log(isResizingRows, isResizingWidth);
-    
 });
 
 $(document).on("mouseup", function () {
+    if (isResizingRows || isResizingWidth) {
+        let html_h = $("#html-editor").height();
+        let css_h = $("#css-editor").height();
+
+        let left_w = $("#container-left").width();
+
+        console.log(html_h, css_h, left_w);
+        
+
+        let html_rate = html_h / window.innerHeight;
+        let css_rate = css_h / window.innerHeight;
+
+        let left_rate = left_w / window.innerWidth;
+
+        let init_opts = {
+            html_rate,
+            css_rate,
+            left_rate
+        }
+
+        console.log(init_opts);
+        
+
+        localStorage.setItem("init_opts", JSON.stringify(init_opts));
+    }
+
     isResizingRows = false;
     isResizingWidth = false;
 
     $('.overlay').css('display', 'none');
 });
 
+initEditorSize();
